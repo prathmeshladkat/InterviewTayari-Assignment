@@ -33,7 +33,7 @@ const LoginMain = () => {
     <div className="flex justify-center items-center min-h-screen bg-gradient-to-br from-rose-100 to-indigo-100 dark:from-gray-800 dark:to-gray-900 p-6">
       <div className="card bg-base-300 w-96 shadow-xl">
         <div className="card-body">
-          <h2 className="card-title justify-center">Login</h2>
+          <h2 className="card-title justify-center text-red-500">Login</h2>
           <div>
             <div className="space-y-2">
               <label

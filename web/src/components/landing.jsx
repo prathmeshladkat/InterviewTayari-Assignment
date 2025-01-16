@@ -6,15 +6,13 @@ const Landing = () => {
     <main className="flex-grow flex flex-col lg:flex-row items-center justify-center text-center p-6 lg:px-12">
       <div className="lg:w-1/2 flex flex-col justify-center items-center lg:items-start">
         <h1 className="text-orange-400 text-sm uppercase mb-2">
-          A Social Media for Developers
+          A One stop PLATFORM for Developers
         </h1>
         <h2 className="text-4xl md:text-6xl font-extrabold leading-tight mb-4 text-left">
-          Match with <span className="text-blue-400">Developers</span> who
-          inspire
+          see peers <span className="text-blue-400">Interview Experince</span>{" "}
+          who inspire
         </h2>
-        <p className="text-green-500 text-sm mb-8">
-          Swipe into the world of developers.
-        </p>
+        <p className="text-green-500 text-sm mb-8">Let's make job ready.</p>
         <div className="flex flex-col items-center lg:items-start gap-8">
           <Link
             to={"/signup"}
