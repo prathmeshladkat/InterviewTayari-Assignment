@@ -26,6 +26,11 @@ const NavbarButton = () => {
     buttonConfig.isVisible = true;
     buttonConfig.text = "Dashboard";
     buttonConfig.to = "/Home";
+  } else if (location.pathname === "/search") {
+    // Show "Dashboard" button on the myresponse page
+    buttonConfig.isVisible = true;
+    buttonConfig.text = "Dashboard";
+    buttonConfig.to = "/Home";
   }
 
   return (

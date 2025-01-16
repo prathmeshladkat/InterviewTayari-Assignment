@@ -9,6 +9,7 @@ const EditProfile = ({ user }) => {
   const [lastName, setLastName] = useState(user.lastName);
   const [workEx, setWorkEx] = useState(user.workEx);
   const [jobTitle, setjobTitle] = useState(user.jobTitle);
+  const [showToast, setShowToast] = useState(false);
 
   const [error, setError] = useState("");
   const dispatch = useDispatch();
@@ -28,6 +29,10 @@ const EditProfile = ({ user }) => {
         { withCredentials: true }
       );
       dispatch(addUser(res?.data?.data));
+      setShowToast(true);
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+
+      setShowToast(false);
     } catch (err) {
       setError(err.response.data);
     }
@@ -139,6 +144,28 @@ const EditProfile = ({ user }) => {
               Save Profile
             </button>
           </div>
+          {showToast && (
+            <div className="fixed bottom-4 right-4 w-80 p-4 bg-green-100 border border-green-300 rounded-lg shadow-lg">
+              <div className="flex items-center gap-3">
+                <svg
+                  className="w-6 h-6 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                <span className="text-sm font-medium text-green-800">
+                  Profile saved successfully.
+                </span>
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

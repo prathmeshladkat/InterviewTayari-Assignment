@@ -21,6 +21,7 @@ const SubmissionDetail = () => {
     company: "",
     questions: [""],
   });
+  const [showToast, setShowToast] = useState(false);
 
   const fetchSubmission = async () => {
     try {
@@ -65,11 +66,14 @@ const SubmissionDetail = () => {
         formData,
         { withCredentials: true }
       );
-      alert("Submission created successfully!");
+
       setSubmission(response.data);
+      setShowToast(true);
+      await new Promise((resolve) => setTimeout(resolve, 3000));
+
+      setShowToast(false);
     } catch (error) {
       console.error("Failed to create submission:", error);
-      alert("Error creating submission. Please try again.");
     }
   };
 
@@ -188,6 +192,28 @@ const SubmissionDetail = () => {
               Submit Interview Details
             </button>
           </form>
+          {showToast && (
+            <div className="fixed bottom-4 right-4 w-80 p-4 bg-green-100 border border-green-300 rounded-lg shadow-lg">
+              <div className="flex items-center gap-3">
+                <svg
+                  className="w-6 h-6 text-green-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                <span className="text-sm font-medium text-green-800">
+                  Responce Submitted Sucssefully.
+                </span>
+              </div>
+            </div>
+          )}
         </div>
 
         {submission && (
