@@ -1,0 +1,18 @@
+version: latest
+
+services:
+  mongodb:
+    container_name: mongo1bolte
+    image: mongo:latest
+    ports:
+      - 27017:27017
+  backend:
+    container_name: backend1bolte
+    build: ./server
+    ports:
+      - 7777:7777
+  frontend:
+    container_name: frontend1bolte
+    build: ./web
+    ports:
+      - 5173:5173
