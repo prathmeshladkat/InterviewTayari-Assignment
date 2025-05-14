@@ -11,6 +11,8 @@ services:
     build: ./server
     ports:
       - 7777:7777
+    env_file:
+      - .env
   frontend:
     container_name: frontend1bolte
     build: ./web
